@@ -1,0 +1,19 @@
+﻿@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+@using Microsoft.AspNetCore.Authentication.OpenIdConnect
+
+<h2>Welcome to OIDC Auth App</h2>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Welcome, @User.Identity.Name!</p>
+    <form method="post" action="/Home/Logout">
+        <button type="submit">Logout</button>
+    </form>
+}
+else
+{
+    <form method="post" action="/Home/Login">
+        <button type="submit">Login</button>
+    </form>
+}
